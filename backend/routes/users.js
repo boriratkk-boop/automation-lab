@@ -45,4 +45,19 @@ router.delete('/:id',(req,res)=>{
  )
 })
 
+router.delete('/test/reset', (req, res) => {
+
+  db.query(
+    "TRUNCATE users",
+    (err, result) => {
+      if (err) {
+        return res.status(500).json(err)
+      }
+
+      res.json({ message: "reset done" })
+    }
+  )
+
+})
+
 module.exports = router

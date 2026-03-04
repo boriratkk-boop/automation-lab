@@ -13,4 +13,6 @@ test('create user', async ({ page }) => {
 
   await expect(page.getByText(name)).toBeVisible()
 
+  await request.delete('/test/reset')
+
 })
