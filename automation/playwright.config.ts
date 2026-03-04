@@ -71,6 +71,20 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
+  webServer: [
+  {
+    command: 'npm start',
+    port: 3000,
+    cwd: '../frontend',
+    reuseExistingServer: true
+  },
+  {
+    command: 'node server.js',
+    port: 5000,
+    cwd: '../backend',
+    reuseExistingServer: true
+  }
+]
 
   /* Run your local dev server before starting the tests */
   // webServer: {
