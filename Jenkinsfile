@@ -1,37 +1,20 @@
 pipeline {
-    agent any
+ agent any
 
-    stages {
+ stages {
 
-        stage('Install Backend') {
-            steps {
-                bat 'cd backend && npm install'
-            }
-        }
+  stage('Install'){
+   steps {
+    bat 'cd automation && npm install'
+   }
+  }
 
-        stage('Install Frontend') {
-            steps {
-                bat 'cd frontend && npm install'
-            }
-        }
+  stage('Run Test'){
+   steps {
+    bat 'cd automation && npx playwright test'
+   }
+  }
 
-        stage('Install Automation') {
-            steps {
-                bat 'cd automation && npm install'
-            }
-        }
+ }
 
-        stage('Install Playwright Browsers') {
-            steps {
-                bat 'cd automation && npx playwright install'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                bat 'cd automation && npx playwright test'
-            }
-        }
-
-    }
 }
