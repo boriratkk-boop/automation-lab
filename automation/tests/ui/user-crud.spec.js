@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test'
 
-test('create user', async ({ page }) => {
+test('create user', async ({ page, request }) => {
 
   const name = 'tester' + Date.now()
 
   await page.goto('http://localhost:3000')
 
-  await page.fill('#name', name)
-  await page.fill('#email', `${name}@test.com`)
+  await page.getByPlaceholder('name').fill(name)
+  await page.getByPlaceholder('email').fill(`${name}@test.com`)
 
   await page.click('text=create')
 
